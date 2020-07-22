@@ -6,8 +6,9 @@ const favicon = require('serve-favicon');
 const geocode = require('./utils/geocode');
 const forecast = require('./utils/forecast');
 
-/* set server */
+/* set server // set PORT for heroku */
 const app = express();
+const port = process.env.PORT || 3000;
 
 /* Paths  for Express config */
 // console.log(__dirname);
@@ -113,6 +114,6 @@ app.get('*', (req, res) => {
 });
 
 /* Setup server */
-app.listen(3000, () => {
-    console.log('Server is up on port 3000');
+app.listen(port, () => {
+    console.log(`Server is up on port ${port}`);
 });
